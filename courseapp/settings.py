@@ -56,7 +56,11 @@ ROOT_URLCONF = 'courseapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates' 
+            #base_dir: c altında courseapp adresini veriyor
+            #ekstra olarak templates i de ara 
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
