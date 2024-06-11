@@ -1,22 +1,18 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block page_title %} Courses {% endblock %}
+{%block content %}
 
-{% block page_title %} Courses {% endblock  %}
+<div class="container mt-3">
+  <!--margin top-->
+  <div class="row">
+    <div class="col-3">{% include 'courses/partials/_categories.html' %}</div>
+    <div class="col-9">
+      {% for course in courses %}
 
-{% block content %}
-<div class="container mt-3"> <!--margin top-->
-      <div class="row">
-        <div class="col-3">
-        <!--menu-->
-        {% include 'courses/partials/_categories.html' %}
-        </div>
-
-        <div class="col-9">
-            <!--content-->
-            <h1>COURSES</h1>
-        </div>
-      </div>
+          {% include 'courses/partials/_course.html' %}
+          
+      {% endfor %}
     </div>
+  </div>
+</div>
 
-{% endblock content %}
-
-
+{% endblock %}

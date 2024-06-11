@@ -1,3 +1,4 @@
+from datetime import date
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -8,20 +9,59 @@ data = {
     "mobil":"mobil kategorisine ait kurslar",
 }
 
+db = {
+    "courses": [
+        {
+            "title": "javascript course",
+            "description": "javascript course desc",
+            "imageUrl": "https://wallpapers.com/images/hd/coding-background-9izlympnd0ovmpli.jpg",
+            "slug": "javascript-kursu",
+            "date": date(2024,10,10),
+            "isActive": True,
+            "isUpdated": False
+        },
+        {
+            "title": "python course",
+            "description": "python course desc",
+            "imageUrl": "https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg",
+            "slug": "python-kursu",
+            "date": date(2024,9,10),
+            "isActive": False,
+            "isUpdated": True
+
+            
+        },
+        {
+            "title": "web geliştirme course",
+            "description": "web geliştirme course desc",
+            "imageUrl": "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg",
+            "slug": "web-gelistirme-kursu",
+            "date": date(2024,8,10),
+            "isActive": True,
+            "isUpdated": True
+        }
+    ],
+
+    "categories": [
+        {"id":1, "name":"programlama", "slug": "programlama"},
+        {"id":2, "name":"web geliştirme", "slug": "web-gelistirme"},
+        {"id":3, "name":"mobil uygulamalar", "slug": "mobil-uygulamalar"}, 
+    ]
+}
+
 def index(request):
-    return render(request, 'courses/index.html') ##kendi uygulaması altında arar bulamazsa diğerlerine bakar
+    # list comphension
+    kurslar = [course for course in db["courses"] if course["isActive"] == True]
+    kategoriler = db["categories"]
 
+    # for kurs in db["courses"]:
+    #    if kurs["isActive"] == True:
+    #        kurslar.append(kurs)
 
-def kurslar(request):
-    list_items = ""
-    category_list = list(data.keys())
-    for category in category_list:
-        redirect_url = reverse('courses_by_category', args=[category])
-        list_items += f"<li><a href='{redirect_url}'>{category}</a></li>"
-
-    html = f"<h1>Kurs Listesi</h1> <br> <ul>{list_items}</ul>"
-
-    return HttpResponse(html)
+    return render(request, 'courses/index.html', {
+        'categories': kategoriler,
+        'courses': kurslar
+    })
 
 def details(request, kurs_adi):
     return HttpResponse(f"{kurs_adi} detay sayfası")

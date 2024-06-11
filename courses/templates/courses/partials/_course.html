@@ -1,0 +1,24 @@
+      <div class="card mb-3">
+        <div class="row">
+          <div class="col-5">
+            <img
+              src="{{course.imageUrl}}"
+              class="img-fluid rounded-start"
+              alt="course.title"
+            />
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title">{{course.title}}</h5>
+              <p class="card-text">{{course.description}}</p>
+              <span>
+                {% if course.isUpdated %}
+                <span class="badge bg-success">Updated</span>
+                {% else %}
+                <span class="badge bg-warning">Waiting For Update</span>
+                {% endif %}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
