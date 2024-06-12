@@ -10,7 +10,7 @@
           <div class="col-md-7">
             <div class="card-body">
               <h5 class="card-title">{{course.title}}</h5>
-              <p class="card-text">{{course.description}}</p>
+              <p class="card-text">{{course.description|truncatechars:15}}</p>
               <span>
                 {% if course.isUpdated %}
                 <span class="badge bg-success">Updated</span>
@@ -18,6 +18,8 @@
                 <span class="badge bg-warning">Waiting For Update</span>
                 {% endif %}
               </span>
+              <p>{{course.date|date:"SHORT_DATE_FORMAT"}}</p>
+              <!--türkçe yapmak için app in settings te language i tr yap-->
             </div>
           </div>
         </div>

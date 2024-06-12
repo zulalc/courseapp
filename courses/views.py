@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -16,7 +16,7 @@ db = {
             "description": "javascript course desc",
             "imageUrl": "https://wallpapers.com/images/hd/coding-background-9izlympnd0ovmpli.jpg",
             "slug": "javascript-kursu",
-            "date": date(2024,10,10),
+            "date": datetime.now(),
             "isActive": True,
             "isUpdated": False
         },
