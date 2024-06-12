@@ -1,8 +1,9 @@
+ {% load static %}     
       <div class="card mb-3">
         <div class="row">
           <div class="col-5">
             <img
-              src="{{course.imageUrl}}"
+              src="{% static 'courses/img/'|add:course.imageUrl %}"
               class="img-fluid rounded-start"
               alt="course.title"
             />

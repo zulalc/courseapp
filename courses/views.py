@@ -14,7 +14,7 @@ db = {
         {
             "title": "javascript course",
             "description": "javascript course desc",
-            "imageUrl": "https://wallpapers.com/images/hd/coding-background-9izlympnd0ovmpli.jpg",
+            "imageUrl": "1.jpg",
             "slug": "javascript-kursu",
             "date": datetime.now(),
             "isActive": True,
@@ -23,10 +23,10 @@ db = {
         {
             "title": "python course",
             "description": "python course desc",
-            "imageUrl": "https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg",
+            "imageUrl": "2.png",
             "slug": "python-kursu",
             "date": date(2024,9,10),
-            "isActive": False,
+            "isActive": True,
             "isUpdated": True
 
             
@@ -34,7 +34,7 @@ db = {
         {
             "title": "web geliştirme course",
             "description": "web geliştirme course desc",
-            "imageUrl": "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg",
+            "imageUrl": "3.jpg",
             "slug": "web-gelistirme-kursu",
             "date": date(2024,8,10),
             "isActive": True,
